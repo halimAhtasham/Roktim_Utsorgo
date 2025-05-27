@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Blood Donation - Activism & Campaign</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Blood Donation - Activism & Campaign">
+    <meta name="author" content="hukkahuwa">
+    <link rel="shortcut icon" th:href="@{/images/favicon.png}" />
+
+    <!-- The styles -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" type="text/css" >
+    <link th:href="@{/css/animate.css}" rel="stylesheet" type="text/css" >
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" >
+    <link th:href="@{/css/venobox.css}" rel="stylesheet" type="text/css" >
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div id="preloader">
+    <span class="margin-bottom"><img th:src="@{/images/loader.gif}" alt="" /></span>
+</div>
+
+<!--  HEADER -->
+<header class="main-header clearfix" data-sticky_header="true">
+    <div class="top-bar clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <p>রক্ত দান, নব প্রাণ, রক্তিম উৎসর্গ অবিরাম!</p>
+                </div>
+                <div class="col-md-4col-sm-12">
+                    <div class="top-bar-social">
+                        <a href="https://www.facebook.com/ahtashamhalim.rifat"><i class="fa fa-facebook"></i></a>
+                        <a href="https://x.com/AhtashamHalim"><i class="fa fa-twitter"></i></a>
+                        <a href="mailto:ahtashamhalim@gmail.com"><i class="fa fa-google-plus"></i></a>
+                        <a href="https://www.instagram.com/ahtashamhalim/"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCUcy6frgxw40tu6EPCVWkxw"><i class="fa fa-youtube"></i></a>
+                        <a href="https://github.com/halimAhtasham"><i class="fa fa-github"></i></a> <!-- ✅ GitHub added -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="header-wrapper navigation-wrapper">
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="logo" th:href="@{/}"><img th:src="@{/images/logo.png}" alt=""></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a th:href="@{/}">Home</a></li>
+                        <li><a href="/about-us.html">About Us</a></li>
+                        <li class="drop"><a href="#">Pages</a>
+                            <ul class="drop-down">
+                                <li><a href="/faq.html">FAQ</a></li>
+                                <li><a href="/gallery-2.html">Gallery</a></li>
+                            </ul>
+                        </li>
+                        <li><a th:href="@{/contact}">Contact</a></li>
+                        <!-- Not logged in -->
+                        <li th:if="${#authorization.expression('isAnonymous()')}">
+                            <a th:href="@{/login}" class="Login-button">Login</a>
+                        </li>
+                        <li th:if="${#authorization.expression('isAnonymous()')}">
+                            <a th:href="@{/register}" class="Login-button">Register</a>
+                        </li>
+
+                        <li th:if="${#authorization.expression('isAuthenticated()')}">
+                            <form th:action="@{/logout}" method="post">
+                                <button type="submit" class="Login-button" style="background:none; border:none; color: #333333">Logout</button>
+                            </form>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+
+<!-- Show Details Button (Visible Only When Logged In) -->
+<div th:if="${#authorization.expression('isAuthenticated()')}"
+     style="text-align: center; margin: 30px 0;">
+    <a th:href="@{/users}"
+       style="
+           background-color: #d42d2d;
+           color: white;
+           border-top: 2px solid #333333;
+           padding: 12px 30px;
+           border-radius: 8px;
+           text-decoration: none;
+           font-weight: bold;
+           font-size: 16px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+           transition: background-color 0.3s ease;
+       "
+       onmouseover="this.style.backgroundColor='#b32020'"
+       onmouseout="this.style.backgroundColor='#d42d2d'">
+        Show All Donors
+    </a>
+</div>
+
+
+<!-- Your existing HTML content remains untouched -->
+<!-- HOME SLIDER BLOCK -->
+<div class="slider-wrap">
+    <div id="slider_1" class="owl-carousel owl-theme">
+        <div class="item">
+            <img th:src="@{/images/home_1_slider_1.jpg}" alt="img">
+            <div class="slider-content text-center">
+                <div class="container">
+                    <div class="slider-contents-info">
+                        <h3>Donate blood, save life!</h3>
+                        <h2>
+                            Your Donation Can bring<br>
+                            smile at others face
+                        </h2>
+                        <a th:href="@{/register}" class="btn btn-slider">Donate Now <i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img th:src="@{/images/home_1_slider_1.jpg}" alt="img">
+            <div class="slider-content text-center">
+                <div class="container">
+                    <div class="slider-contents-info">
+                        <h3>Donate blood, save life!</h3>
+                        <h2>
+                            Donate your blood and<br>
+                            inspire others
+                        </h2>
+                        <a th:href="@{/register}" class="btn btn-slider">Join With Us <i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION DONATION PROCESS -->
+<section class="section-content-block section-process">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center">
+                <h2 class="section-heading"><span>Donation</span> Process</h2>
+                <p class="section-subheading">The donation process from the time you arrive center until the time you leave</p>
+            </div>
+        </div>
+
+        <div class="row wow fadeInUp">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="process-layout">
+                    <figure class="process-img">
+                        <img th:src="@{/images/process_1.jpg}" alt="process" />
+                        <div class="step"><h3>1</h3></div>
+                    </figure>
+                    <article class="process-info">
+                        <h2>Registration</h2>
+                        <p>You need to complete a simple registration form with contact info to start the donation process.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="process-layout">
+                    <figure class="process-img">
+                        <img th:src="@{/images/process_2.jpg}" alt="process" />
+                        <div class="step"><h3>2</h3></div>
+                    </figure>
+                    <article class="process-info">
+                        <h2>Screening</h2>
+                        <p>A drop of blood is taken to ensure your iron level is sufficient for donation.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="process-layout">
+                    <figure class="process-img">
+                        <img th:src="@{/images/process_3.jpg}" alt="process" />
+                        <div class="step"><h3>3</h3></div>
+                    </figure>
+                    <article class="process-info">
+                        <h2>Donation</h2>
+                        <p>After screening, you're guided to a donor bed. It takes just 6–10 minutes.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="process-layout">
+                    <figure class="process-img">
+                        <img th:src="@{/images/process_4.jpg}" alt="process" />
+                        <div class="step"><h3>4</h3></div>
+                    </figure>
+                    <article class="process-info">
+                        <h2>Refreshment</h2>
+                        <p>Relax and enjoy a drink before you leave — feel strong and proud!</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--  SECTION COUNTER   -->
+
+<section class="section-counter"  data-stellar-background-ratio="0.3">
+
+    <div class="container wow fadeInUp">
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+
+                <div class="counter-block-1 text-center">
+
+                    <i class="fa fa-heartbeat icon"></i>
+                    <!-- <span class="counter">2578</span>                             -->
+                    <h4>Success Smile</h4>
+
+                </div>
+
+            </div> <!--  end .col-lg-3  -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+
+                <div class="counter-block-1 text-center">
+
+                    <i class="fa fa-stethoscope icon"></i>
+                    <!-- <span class="counter">3235</span>                             -->
+                    <h4>Happy Donors</h4>
+
+                </div>
+
+            </div> <!--  end .col-lg-3  -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+
+                <div class="counter-block-1 text-center">
+
+                    <i class="fa fa-users icon"></i>
+                    <!-- <span class="counter">3568</span>                              -->
+                    <h4>Happy Recipient</h4>
+
+                </div>
+
+            </div> <!--  end .col-lg-3  -->
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+
+                <div class="counter-block-1 text-center">
+
+                    <i class="fa fa-building icon"></i>
+                    <!-- <span class="counter">1364</span>                             -->
+                    <h4>Awards</h4>
+
+                </div>
+
+            </div> <!--  end .col-lg-3  -->
+
+
+        </div> <!-- end row  -->
+
+    </div> <!--  end .container  -->
+
+</section> <!--  end .section-counter -->
+
+<!-- SECTION TESTIMONIAL   -->
+
+<section class="section-content-block section-client-testimonial">
+
+    <div class="container">
+
+        <div class="testimonial-container text-center">
+
+            <div class="col-md-10 col-md-offset-1 col-sm-12">
+
+                <div class="testimony-layout-1">
+                    <h3 class="people-quote">Donor Opinion</h3>
+                    <p class="testimony-text">
+                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        I proudly donate blood on a regular basis because it gives others something they desperately need to survive. Just knowing I can make a difference in someone else’s life makes me feel great!
+                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                    </p>
+
+                    <h6>Brandon Munson</h6>
+                    <span>CTO, Fulcrum Design, USA</span>
+
+                </div> <!-- end .testimony-layout-1  -->
+
+            </div> <!--  end col-md-10  -->
+
+            <div class="col-md-10 col-md-offset-1 col-sm-12">
+
+                <div class="testimony-layout-1">
+                    <h3 class="people-quote">Donor Opinion</h3>
+                    <p class="testimony-text">
+                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        I have been a donor since high school. Although I have not been a donor every year, I always want to give to the human race. I love to help others! Moreover it gives a real peace in my mind.
+                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                    </p>
+
+                    <h6>Brandon Munson</h6>
+                    <span>CTO, Fulcrum Design, USA</span>
+
+                </div> <!-- end .testimony-layout-1  -->
+
+            </div> <!--  end col-md-10  -->
+
+            <div class="col-md-10 col-md-offset-1 col-sm-12">
+
+                <div class="testimony-layout-1">
+                    <h3 class="people-quote">Recipient Opinion</h3>
+                    <p class="testimony-text">
+                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        I wish I could tell you my donor how grateful I am for your selfless act.You gave me new life. We may be coworkers or schoolmates or just two in the same community.I'm very grateful to you.
+                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                    </p>
+
+                    <h6>Brandon Munson</h6>
+                    <span>CTO, Fulcrum Design, USA</span>
+
+                </div> <!-- end .testimony-layout-1  -->
+
+            </div> <!--  end col-md-10  -->
+
+        </div>  <!--  end .row  -->
+
+    </div> <!-- end .container  -->
+
+</section> <!--  end .section-client-testimonial -->
+
+<!-- SECTION CTA -->
+<section class="section-content-block cta-section-3">
+    <div class="container wow fadeIn animated">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cta-content text-center">
+                    <h2>Join with us and save life</h2>
+                    <a class="btn-cta-3" href="#">Become Volunteer</a>
+                </div>
+            </div> <!-- end .col-md-12 -->
+        </div> <!-- end .row  -->
+    </div> <!-- end .container  -->
+</section>   <!-- end cta-section  -->
+
+
+<!-- SECTION LOGO -->
+<section class="section-client-logo">
+    <div class="container wow fadeInUp">
+        <div class="row section-heading-wrapper">
+            <div class="col-md-12 col-sm-12 text-center">
+                <h2 class="section-heading">Our Sponsors</h2>
+                <p class="section-subheading">The sponsors who give their valuable amount to fulfill our mission.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="logo-items logo-layout-1 text-center">
+                <div class="client-logo">
+                    <img th:src="@{/images/logo_1.jpg}" alt="Sponsor Logo 1" />
+                </div>
+                <div class="client-logo">
+                    <img th:src="@{/images/logo_2.jpg}" alt="Sponsor Logo 2" />
+                </div>
+                <div class="client-logo">
+                    <img th:src="@{/images/logo_3.jpg}" alt="Sponsor Logo 3" />
+                </div>
+                <div class="client-logo">
+                    <img th:src="@{/images/logo_4.jpg}" alt="Sponsor Logo 4" />
+                </div>
+                <div class="client-logo">
+                    <img th:src="@{/images/logo_5.jpg}" alt="Sponsor Logo 5" />
+                </div>
+                <div class="client-logo">
+                    <img th:src="@{/images/logo_6.jpg}" alt="Sponsor Logo 6" />
+                </div>
+                <div class="client-logo">
+                    <img th:src="@{/images/logo_7.jpg}" alt="Sponsor Logo 7" />
+                </div>
+                <div class="client-logo">
+                    <img th:src="@{/images/logo_8.jpg}" alt="Sponsor Logo 8" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- START FOOTER -->
+<footer>
+    <section class="footer-widget-area footer-widget-area-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="about-footer">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <img th:src="@{/images/logo-footer.png}" alt="footer logo" />
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                <p>
+                                    We are world largest and trustful blood donation center. We have been working since 1973 with a prestigious vision to helping patients by providing blood.
+                                    We are working all over the world, organizing blood donation campaigns to grow awareness among people to donate blood.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="footer-widget">
+                        <div class="sidebar-widget-wrapper">
+                            <div class="footer-widget-header clearfix">
+                                <h3>Contact Us</h3>
+                            </div>
+                            <div class="textwidget">
+                                <i class="fa fa-envelope-o fa-contact"></i>
+                                <p><a href="mailto:ahtashamhalim@gmail.com">ahtashamhalim@gmail.com</a></p>
+                                <i class="fa fa-location-arrow fa-contact"></i>
+                                <p>Road-2, 3/A South Purbachal<br/>Narayanganj, Bangladesh</p>
+                                <i class="fa fa-phone fa-contact"></i>
+                                <p>Office: (+880) 17954-20254</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="footer-widget clearfix">
+                        <div class="sidebar-widget-wrapper">
+                            <div class="footer-widget-header clearfix">
+                                <h3>Support Links</h3>
+                            </div>
+
+                            <ul class="footer-useful-links">
+                                <li><a href="https://www.cdc.gov/thalassemia/about/index.html"><i class="fa fa-caret-right fa-footer"></i> Thalassemia</a></li>
+                                <li><a href="https://my.clevelandclinic.org/health/diseases/17742-polycythemia-vera"><i class="fa fa-caret-right fa-footer"></i> Polycythemia</a></li>
+                                <li><a href="https://www.mayoclinic.org/diseases-conditions/myelodysplastic-syndrome/symptoms-causes/syc-20366977"><i class="fa fa-caret-right fa-footer"></i> Myelodysplastic syndrome</a></li>
+                                <li><a href="https://www.mayoclinic.org/tests-procedures/complete-blood-count/about/pac-20384919"><i class="fa fa-caret-right fa-footer"></i> Blood Count</a></li>
+                                <li><a href="https://my.clevelandclinic.org/health/diseases/22479-hemolytic-anemia"><i class="fa fa-caret-right fa-footer"></i> Hemolytic anemia</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right fa-footer"></i> Chromas Eosis</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right fa-footer"></i> Hypercoagulability</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right fa-footer"></i> Thrombocytosis</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right fa-footer"></i> Sickle Cell Anemia</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right fa-footer"></i> Aplastic Anemia</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--FOOTER CONTENT-->
+    <section class="footer-contents">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-6 col-sm-12">
+                    <p class="copyright-text">Copyright © 2025, All Right Reserved - HUKK@HUW@</p>
+                </div>
+                <div class="col-md-6 col-sm-12 text-right">
+                    <div class="footer-nav">
+                        <nav>
+                            <ul>
+                                <li><a th:href="@{/}">Home</a></li>
+                                <li><a href="/gallery-2.html">Gallery</a></li>
+                                <li><a href="/contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<!-- END FOOTER -->
+
+
+<!-- Back To Top Button  -->
+
+<a id="backTop">Back To Top</a>
+
+<!-- Scripts -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/wow.min.js}"></script>
+<script th:src="@{/js/jquery.backTop.min.js}"></script>
+<script th:src="@{/js/waypoints.min.js}"></script>
+<script th:src="@{/js/waypoints-sticky.min.js}"></script>
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<script th:src="@{/js/jquery.stellar.min.js}"></script>
+<script th:src="@{/js/jquery.counterup.min.js}"></script>
+<script th:src="@{/js/venobox.min.js}"></script>
+<script th:src="@{/js/custom-scripts.js}"></script>
+</body>
+</html>
