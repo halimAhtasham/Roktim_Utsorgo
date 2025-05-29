@@ -7,7 +7,18 @@ Supports user registration, admin login, dashboard management, email notificatio
 
 ## 📸 Demo Screenshots
 
-> _You can add demo images here after deployment (e.g., home page, login, admin panel, contact form, etc.)_
+<h2>🏠 Home Page</h2>
+<img src="Home Page.png" alt="Home Page" width="600"/>
+
+<h2>👥 About Us</h2>
+<img src="About Us.png" alt="About Us Page" width="600"/>
+
+<h2>📋 User List</h2>
+<img src="Users.png" alt="User List Page" width="600"/>
+
+<h2>🛠️ Admin Dashboard</h2>
+<img src="Admin.png" alt="Admin Dashboard Page" width="600"/>
+
 
 ---
 
@@ -86,10 +97,10 @@ Password: admin123
 
 ## 🧑‍💻 Developer Setup
 
-- Java 17+
+- Java 21+(I use 24)
 - Maven 3.8+
-- MySQL Server
-- IDE (IntelliJ / VS Code recommended)
+- MySQL Workbench
+- IDE (IntelliJ IDE Ultimate Version Recommended)
 
 ---
 
@@ -136,4 +147,4 @@ Licensed under the [MIT License](LICENSE).
 ## 👤 Author
 
 **Ahtasham Halim Rifat**  
-[GitHub Profile](https://github.com/your-github-profile)
+[GitHub Profile](https://github.com/halimAhtasham)
