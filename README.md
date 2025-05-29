@@ -5,9 +5,9 @@ Supports user registration, admin login, dashboard management, email notificatio
 
 ---
 
-## 📸 Demo Screenshots
+## 📸 Screenshots
 
-<h2>🏠 Home Page</h2>
+<h3>🏠 Home</h3>
 <img src="Home Page.png" alt="Home Page" width="800"/>
 
 <h2>🏠 After Login</h2>
