@@ -8,16 +8,19 @@ Supports user registration, admin login, dashboard management, email notificatio
 ## 📸 Demo Screenshots
 
 <h2>🏠 Home Page</h2>
-<img src="Home Page.png" alt="Home Page" width="600"/>
+<img src="Home Page.png" alt="Home Page" width="800"/>
+
+<h2>🏠 After Login</h2>
+<img src="After Login.png" alt="After Login" width="800"/>
 
 <h2>👥 About Us</h2>
-<img src="About Us.png" alt="About Us Page" width="600"/>
+<img src="About Us.png" alt="About Us Page" width="800"/>
 
 <h2>📋 User List</h2>
-<img src="Users.png" alt="User List Page" width="600"/>
+<img src="Users.png" alt="User List Page" width="800"/>
 
 <h2>🛠️ Admin Dashboard</h2>
-<img src="Admin.png" alt="Admin Dashboard Page" width="600"/>
+<img src="Admin.png" alt="Admin Dashboard Page" width="800"/>
 
 
 ---
